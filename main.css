@@ -484,22 +484,15 @@ section { padding: 112px 0; position: relative; overflow-x: clip; }
 .price-row b small { font-family: var(--body); font-size: 0.72rem; margin-left: 4px; color: var(--text-sub); }
 .price-card.featured .price-row b small { color: var(--on-dark-sub); }
 .price-row.unlimited { color: var(--pink); font-weight: 700; }
-.campaign {
-  max-width: 920px;
-  margin: 20px auto 0;
-  background: var(--lime);
-  border-radius: var(--radius);
-  padding: 20px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-family: var(--heading);
-  font-weight: 900;
-}
-.campaign s { opacity: 0.55; font-weight: 700; }
-.campaign .big { font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1; }
+.fees { max-width: 920px; margin: 20px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fee { background: var(--white); border: 1px solid var(--paper-2); border-radius: var(--radius); padding: 22px 28px; }
+.fee-campaign { background: var(--lime); border-color: var(--lime); }
+.fee-label { font-family: var(--heading); font-weight: 900; font-size: 1rem; }
+.fee-val { margin: 4px 0 6px; font-family: var(--heading); font-weight: 700; display: flex; align-items: baseline; gap: 12px; }
+.fee-val s { opacity: 0.55; }
+.fee-val .big { font-family: var(--display); font-weight: 400; font-size: 2.2rem; line-height: 1.1; letter-spacing: 0.02em; }
+.fee-note { font-size: 0.78rem; color: var(--text-sub); line-height: 1.6; }
+.fee-campaign .fee-note { color: var(--ink); font-weight: 700; }
 
 /* ---------- trial ---------- */
 #trial { background: var(--pink); color: #fff; overflow: hidden; }
@@ -641,6 +634,8 @@ footer { background: var(--ink); color: var(--on-dark); padding: 88px 0 40px; }
   .inst-body { padding: 14px; }
   .inst-name { font-size: 1.35rem; }
   .price-grid { grid-template-columns: 1fr; }
+  .fees { grid-template-columns: 1fr; gap: 12px; }
+  .fee { padding: 20px 22px; }
   .price-card, .access-info { padding: 26px 22px; }
   .access-info dl { grid-template-columns: 1fr; gap: 2px; }
   .access-info dd { margin-bottom: 12px; }
