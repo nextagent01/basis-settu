@@ -330,22 +330,26 @@ section { padding: 112px 0; position: relative; overflow-x: clip; }
 .ticket-big { font-family: var(--display); font-size: 2.8rem; line-height: 0.95; }
 .ticket-sub { font-family: var(--heading); font-weight: 900; font-size: 0.9rem; background: var(--lime); color: var(--ink); align-self: flex-start; padding: 4px 12px; border-radius: 999px; }
 .studio-list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 52px; }
-.studio-list li {
+.studio-list li { position: relative; }
+.studio-list a {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-template-areas: "name days" "area days";
-  gap: 2px 12px;
+  grid-template-areas: "name days" "area go";
+  gap: 4px 12px;
   align-items: center;
+  height: 100%;
   background: var(--ink-2);
   border: 1px solid var(--ink-3);
   border-radius: 14px;
   padding: 16px 18px;
-  position: relative;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
 }
+.studio-list a:hover { border-color: var(--pink); transform: translateY(-2px); }
 .studio-name { grid-area: name; font-family: var(--heading); font-weight: 900; font-size: 1rem; }
 .studio-area { grid-area: area; font-size: 0.78rem; color: var(--on-dark-sub); }
-.studio-days { grid-area: days; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--ink-3); white-space: nowrap; }
-.studio-list li.here { border-color: var(--pink); background: rgba(255, 61, 139, 0.12); }
+.studio-days { grid-area: days; justify-self: end; font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--ink-3); white-space: nowrap; }
+.studio-go { grid-area: go; justify-self: end; font-size: 0.75rem; font-weight: 700; color: var(--pink); white-space: nowrap; }
+.studio-list li.here a { border-color: var(--pink); background: rgba(255, 61, 139, 0.12); }
 .here-tag { position: absolute; top: -10px; right: 14px; font-size: 0.68rem; font-weight: 700; background: var(--pink); color: #fff; padding: 2px 10px; border-radius: 999px; }
 .studio-more { margin-top: 24px; font-size: 0.85rem; color: var(--on-dark-sub); text-align: center; }
 .studio-more a { color: var(--on-dark); text-decoration: underline; text-underline-offset: 3px; }
@@ -456,13 +460,60 @@ section { padding: 112px 0; position: relative; overflow-x: clip; }
 .sch-cta { text-align: center; margin-top: 36px; }
 
 /* ---------- instructors ---------- */
-.inst-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 56px; }
-.inst { background: var(--ink-2); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--ink-3); display: flex; flex-direction: column; }
-.inst img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 20%; }
-.inst-body { padding: 18px 18px 22px; }
-.inst-name { font-family: var(--display); font-size: 1.7rem; letter-spacing: 0.05em; line-height: 1; }
-.inst-genre { font-size: 0.72rem; color: var(--pink); font-weight: 700; margin: 8px 0 10px; }
-.inst-body p { font-size: 0.78rem; color: var(--on-dark-sub); line-height: 1.75; }
+.inst-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 56px; align-items: start; }
+.inst { background: var(--ink-2); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--ink-3); display: flex; flex-direction: column; transition: border-color 0.2s; }
+.inst.open { border-color: var(--pink); }
+.inst-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.inst-btn:focus-visible { outline: 2px solid var(--pink); outline-offset: -2px; }
+.inst img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 20%; transition: transform 0.5s; }
+.inst-btn:hover img { transform: scale(1.03); }
+.inst-head { display: block; padding: 18px 18px 14px; position: relative; background: var(--ink-2); }
+.inst-name { display: block; font-family: var(--display); font-size: 1.7rem; letter-spacing: 0.05em; line-height: 1; }
+.inst-genre { display: block; font-size: 0.72rem; color: var(--pink); font-weight: 700; margin: 8px 0 12px; }
+.inst-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-3);
+  background: var(--ink-3);
+}
+.inst-cta::after { content: '+'; font-family: var(--display); font-size: 1rem; line-height: 1; color: var(--pink); transition: transform 0.25s; }
+.inst.open .inst-cta { background: var(--pink); border-color: var(--pink); }
+.inst.open .inst-cta::after { transform: rotate(45deg); color: #fff; }
+.inst-classes { padding: 0 12px 10px; }
+.inst-classes ul { list-style: none; display: grid; gap: 6px; }
+.inst-classes a {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.inst-classes a:hover { background: var(--lime); }
+.inst-classes b { font-family: var(--heading); font-weight: 900; background: var(--ink); color: #fff; width: 24px; height: 24px; border-radius: 6px; display: grid; place-items: center; font-size: 0.75rem; }
+.inst-classes span { font-family: var(--display); font-weight: 400; font-size: 0.9rem; letter-spacing: 0.02em; }
+.inst-bio { padding: 4px 18px 22px; font-size: 0.78rem; color: var(--on-dark-sub); line-height: 1.75; }
+.inst-hint { margin-top: 20px; font-size: 0.8rem; color: var(--on-dark-sub); text-align: center; }
 
 /* ---------- stage ---------- */
 .stage { padding: 0; background: var(--ink); color: var(--on-dark); }
@@ -630,9 +681,13 @@ footer { background: var(--ink); color: var(--on-dark); padding: 88px 0 40px; }
   .ticket { max-width: 280px; }
   .ticket-big { font-size: 2.2rem; }
   .inst-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .inst-body p { display: none; }
-  .inst-body { padding: 14px; }
+  .inst-bio { display: none; }
+  .inst-head { padding: 14px 12px 12px; }
   .inst-name { font-size: 1.35rem; }
+  .inst-cta { font-size: 0.68rem; padding: 5px 10px; }
+  .inst-classes { padding: 0 8px 8px; }
+  .inst-classes a { grid-template-columns: auto 1fr; padding: 8px; gap: 2px 8px; font-size: 0.72rem; }
+  .inst-classes b { grid-row: span 2; }
   .price-grid { grid-template-columns: 1fr; }
   .fees { grid-template-columns: 1fr; gap: 12px; }
   .fee { padding: 20px 22px; }
