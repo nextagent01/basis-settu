@@ -431,6 +431,23 @@ section { padding: 112px 0; position: relative; overflow-x: clip; }
 .class-meta span { font-size: 0.72rem; font-weight: 500; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.2); }
 .class-meta span.age { background: var(--lime); color: var(--ink); border-color: var(--lime); font-weight: 700; }
 
+.yt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 7px 14px 7px 10px;
+  border-radius: 999px;
+  background: #ff0033;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 0.2s, background 0.2s;
+}
+.yt-btn:hover { background: #d9002b; transform: translateY(-2px); }
+.yt-btn svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+
 /* ---------- schedule ---------- */
 .week { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
 .day {
@@ -674,6 +691,9 @@ footer { background: var(--ink); color: var(--on-dark); padding: 88px 0 40px; }
   .class-name { font-size: 1.5rem; }
   .class-ja { font-size: 0.78rem; }
   .class-meta span:not(.age) { display: none; }
+  .class-meta { margin-top: 8px; }
+  .yt-btn { margin-top: 8px; padding: 5px 10px 5px 7px; font-size: 0.66rem; gap: 4px; }
+  .yt-btn svg { width: 15px; height: 15px; }
   .week { grid-template-columns: 1fr; }
   .studio-list { grid-template-columns: 1fr; }
   .h2 { font-size: 1.7rem; }
