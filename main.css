@@ -446,10 +446,10 @@ section { padding: 112px 0; position: relative; overflow-x: clip; }
 #trial .eyebrow { color: var(--ink); }
 #trial .lead { color: rgba(255,255,255,0.9); }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 48px 0 40px; position: relative; }
-.step { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius); padding: 26px 24px; }
-.step-num { font-family: var(--display); font-size: 0.85rem; letter-spacing: 0.2em; color: var(--ink); }
+.step { background: var(--white); color: var(--text); border-radius: var(--radius); padding: 26px 24px; box-shadow: 0 12px 32px rgba(120, 0, 50, 0.18); }
+.step-num { font-family: var(--display); font-size: 0.85rem; letter-spacing: 0.2em; color: var(--pink); }
 .step h3 { font-family: var(--heading); font-weight: 900; font-size: 1.15rem; margin: 6px 0 8px; }
-.step p { font-size: 0.86rem; color: rgba(255,255,255,0.9); line-height: 1.7; }
+.step p { font-size: 0.86rem; color: var(--text-sub); line-height: 1.7; }
 .trial-bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; position: relative; }
 .trial-prices { display: flex; gap: 28px; flex-wrap: wrap; }
 .trial-price { font-family: var(--heading); font-weight: 700; font-size: 0.9rem; }
