@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/book-online", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
+    { "source": "/book-online/", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
+    { "source": "/book-online/:path*", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
+    { "source": "/service-page/:path*", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
+    { "source": "/%E4%BD%93%E9%A8%93%E3%83%AC%E3%83%83%E3%82%B9%E3%83%B3%E4%BA%88%E7%B4%84", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
+    { "source": "/体験レッスン予約", "destination": "https://dance-basis.web.app/booking/1", "permanent": true }
+  ]
+}
