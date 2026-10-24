@@ -672,8 +672,39 @@ footer { background: var(--ink); color: var(--on-dark); padding: 88px 0 40px; }
 .socials a { border: 1px solid var(--ink-3); border-radius: 999px; padding: 6px 14px; font-family: var(--display); letter-spacing: 0.1em; font-size: 0.75rem; }
 .copy { margin-top: 56px; font-size: 0.75rem; color: #6f6680; }
 
-/* ---------- mobile sticky CTA ---------- */
-.sticky-cta { display: none; }
+/* ---------- mobile CTA bar（服部教室サイトと同じ構成） ---------- */
+.cta-bar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 90;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(14, 11, 20, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.cta-row { display: flex; gap: 8px; }
+.cta-bar .btn { flex: 1; min-width: 0; padding: 11px 4px; font-size: 12px; gap: 4px; letter-spacing: 0; box-shadow: none; }
+.cta-bar .btn:hover { transform: none; }
+.cta-bar .btn-tel { background: #fff; color: var(--ink); }
+.cta-bar .btn-access { background: #4285f4; color: #fff; }
+.cta-bar .ico { width: 16px; height: 16px; flex: none; }
+@media (max-width: 359px) { .cta-bar .btn .ico { display: none; } }
+.cta-sns a { flex: 1; min-width: 0; display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding: 7px 4px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #fff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); }
+.cta-sns .ico { width: 16px; height: 16px; flex: none; }
+.cta-sns .sns-yt-b { background: #ff0000; border-color: #ff0000; }
+.cta-sns .sns-yt-b .ico rect { fill: #fff; }
+.cta-sns .sns-yt-b .ico path { fill: #ff0000; }
+.cta-sns .sns-tt-b { background: #000; border-color: #000; box-shadow: inset 2px 0 0 #25f4ee, inset -2px 0 0 #fe2c55; }
+.cta-sns .sns-tt-b .ico { filter: drop-shadow(-1px -1px 0 #25f4ee) drop-shadow(1px 1px 0 #fe2c55); }
+.cta-sns .sns-ig-b { background: linear-gradient(45deg, #f9ce34, #ee2a7b 50%, #6228d7); border-color: transparent; }
+@media (max-width: 820px) {
+  .cta-bar { display: flex; }
+  body { padding-bottom: calc(118px + env(safe-area-inset-bottom)); }
+}
 
 /* ---------- reveal ---------- */
 .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.8s, transform 0.8s cubic-bezier(.2,.7,.2,1); }
@@ -754,20 +785,4 @@ footer { background: var(--ink); color: var(--on-dark); padding: 88px 0 40px; }
   .foot-grid { grid-template-columns: 1fr; }
   .trial-bottom .btns, .trial-bottom .btns .btn, .foot-cta .btns .btn { width: 100%; }
   .faq details p { padding-left: 24px; }
-  body { padding-bottom: 72px; }
-  .sticky-cta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    z-index: 90;
-    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(14,11,20,0.94);
-    backdrop-filter: blur(10px);
-    transform: translateY(110%);
-    transition: transform 0.3s;
-  }
-  .sticky-cta.show { transform: none; }
-  .sticky-cta .btn { padding: 13px 10px; font-size: 0.85rem; box-shadow: none; }
 }
