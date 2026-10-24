@@ -1,5 +1,7 @@
 {
   "redirects": [
+    { "source": "/", "has": [{ "type": "host", "value": "genuineprogress.net" }], "destination": "https://basis-settu.com/", "permanent": true },
+    { "source": "/", "has": [{ "type": "host", "value": "www.genuineprogress.net" }], "destination": "https://basis-settu.com/", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "genuineprogress.net" }], "destination": "https://basis-settu.com/:path*", "permanent": true },
     { "source": "/:path*", "has": [{ "type": "host", "value": "www.genuineprogress.net" }], "destination": "https://basis-settu.com/:path*", "permanent": true },
     { "source": "/book-online", "destination": "https://dance-basis.web.app/booking/1", "permanent": true },
